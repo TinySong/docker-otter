@@ -9,6 +9,10 @@ ARG OTTER_DOWNLOAD_LINK="https://github.com/alibaba/otter/releases/download/otte
 ARG ARIA2_DOWNLOAD_LINK="https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0-aarch64-linux-android-build1.zip"
 ENV OTTER_HOME /usr/local/otter
 
+#添加启动脚本
+COPY docker-entrypoint.sh /usr/local/bin/
+COPY start.sh ${OTTER_HOME}/bin/
+
 RUN \
     cd /tmp && \
     wget ${ARIA2_DOWNLOAD_LINK} && \
@@ -24,10 +28,6 @@ RUN \
     chmod a+x ${OTTER_HOME}/bin/start.sh && \
     yum clean all && \
     true
-
-#添加启动脚本
-COPY docker-entrypoint.sh /usr/local/bin/
-COPY start.sh ${OTTER_HOME}/bin/
 
 EXPOSE 8081 1099
 # 配置容器启动后执行的命令
