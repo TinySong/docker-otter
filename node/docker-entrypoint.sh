@@ -22,10 +22,10 @@ if [ -z "$NID" ]; then
 	fi
 fi
 
-if [ -n "$NODE_HOME" ]; then
-    cmd="sed -i -e 's/^otter.nodeHome.*$/otter.nodeHome = ${NODE_HOME}/' ${otterProperties}"
+if [ -n "$OTTER_HOME" ]; then
+    cmd="sed -i -e 's/^otter.nodeHome.*$/otter.nodeHome = ${OTTER_HOME}/' ${otterProperties}"
     eval $cmd
-	echo "NODE_HOME: ${NODE_HOME}"
+	echo "OTTER_HOME: ${OTTER_HOME}"
 fi
 
 if [ -n "$ZOOKEEPER_SESSION_TIMEOUT" ]; then
