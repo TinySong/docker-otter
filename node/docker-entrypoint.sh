@@ -7,7 +7,6 @@ echo $otterNodeIdFile
 logback_configurationFile=$base/conf/logback.xml
 
 otterProperties=${OTTER_HOME}/conf/otter.properties
-otterNodeHome=${OTTER_HOME}
 
 if [ ! -d $base/logs/node ] ; then 
 	mkdir -p $base/logs/node
@@ -23,9 +22,10 @@ if [ -z "$NID" ]; then
 fi
 
 if [ -n "$OTTER_HOME" ]; then
+	otterNodeHome=cat ${OTTER_HOME} | 's/\//\\//' 
     cmd="sed -i -e 's/^otter.nodeHome.*$/otter.nodeHome = ${OTTER_HOME}/' ${otterProperties}"
     eval $cmd
-	echo "OTTER_HOME: ${OTTER_HOME}"
+	echo "OTTER_HOME: ${otterNodeHome}"
 fi
 
 if [ -n "$ZOOKEEPER_SESSION_TIMEOUT" ]; then
