@@ -22,7 +22,7 @@ if [ -z "$NID" ]; then
 fi
 
 if [ -n "$OTTER_HOME" ]; then
-	otterNodeHome=echo ${OTTER_HOME} | 's/\//\\//' 
+	otterNodeHome=$(echo ${OTTER_HOME} | 's/\//\\//')
     cmd="sed -i -e 's/^otter.nodeHome.*$/otter.nodeHome = ${OTTER_HOME}/' ${otterProperties}"
     eval $cmd
 	echo "OTTER_HOME: ${otterNodeHome}"
