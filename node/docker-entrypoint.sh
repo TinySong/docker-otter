@@ -24,7 +24,7 @@ fi
 if [ -n "$OTTER_HOME" ]; then
     cmd="sed -i -e 's|^otter.nodeHome.*$|otter.nodeHome = ${OTTER_HOME}|' ${otterProperties}"
     eval $cmd
-	echo "OTTER_HOME: ${otterNodeHome}"
+	echo "OTTER_HOME: ${OTTER_HOME}"
 fi
 
 if [ -n "$ZOOKEEPER_SESSION_TIMEOUT" ]; then
