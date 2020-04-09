@@ -6,19 +6,15 @@ MAINTAINER ZWWang (zwwang_cool@163.com)
 
 ARG OTTER_VERSION=4.2.18
 ARG OTTER_DOWNLOAD_LINK="https://github.com/alibaba/otter/releases/download/otter-4.2.18/node.deployer-${OTTER_VERSION}.tar.gz"
-ARG ARIA2_DOWNLOAD_LINK="https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0-aarch64-linux-android-build1.zip"
 ENV OTTER_HOME /usr/local/otter
 
 #添加启动脚本
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY start.sh ${OTTER_HOME}/bin/
+COPY aria2c /usr/local/bin/
 
 RUN \
     cd /tmp && \
-    wget ${ARIA2_DOWNLOAD_LINK} && \
-    unzip  aria2-1.35.0-aarch64-linux-android-build1.zip && \
-    cp aria2-1.35.0-aarch64-linux-android-build1/aria2c /usr/bin/aria2c && \
-    rm -rf aria2-1.35.0-aarch64-linux-android-build1.zip && \
     mkdir -p /usr/local/otter && \
     cd $OTTER_HOME && \
     wget ${OTTER_DOWNLOAD_LINK} && \
