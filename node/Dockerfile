@@ -21,6 +21,7 @@ RUN \
     tar -zxvf node.deployer-${OTTER_VERSION}.tar.gz && \
     rm -rf node.deployer-${OTTER_VERSION}.tar.gz && \
     chmod a+x /usr/local/bin/docker-entrypoint.sh && \
+    chmod a+x /usr/local/bin/aria2c && \
     chmod a+x ${OTTER_HOME}/bin/start.sh && \
     yum clean all && \
     true
