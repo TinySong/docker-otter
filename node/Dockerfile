@@ -8,6 +8,13 @@ ARG OTTER_VERSION=4.2.18
 ARG OTTER_DOWNLOAD_LINK="https://github.com/alibaba/otter/releases/download/otter-4.2.18/node.deployer-${OTTER_VERSION}.tar.gz"
 ENV OTTER_HOME /usr/local/otter
 
+ENV Xms 2048m
+ENV Xmx 3072m
+ENV Xmn 1024m
+ENV PermSize 96m
+ENV MaxPermSize 254m
+ENV appName otter-node
+
 #添加启动脚本
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY start.sh ${OTTER_HOME}/bin/

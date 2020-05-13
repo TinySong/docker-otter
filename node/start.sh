@@ -2,12 +2,12 @@
 otterNodeIdFile=${OTTER_HOME}/conf/nid
 logback_configurationFile=${OTTER_HOME}/conf/logback.xml
 
-JAVA_OPTS="-server -Xms2048m -Xmx3072m -Xmn1024m -XX:SurvivorRatio=2 -XX:PermSize=96m -XX:MaxPermSize=256m \
+JAVA_OPTS="-server -Xms${Xms} -Xmx${Xmx} -Xmn${Xmn} -XX:SurvivorRatio=2 -XX:PermSize=${PermSize} -XX:MaxPermSize=${MaxPermSize} \
 -Xss256k -XX:-UseAdaptiveSizePolicy -XX:MaxTenuringThreshold=15 -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC \
 -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:+UseFastAccessorMethods \
 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError"
 JAVA_OPTS="$JAVA_OPTS -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8"
-OTTER_OPTS="-DappName=otter-node -Ddubbo.application.logger=slf4j -Dlogback.configurationFile=$logback_configurationFile -Dnid=$(cat $otterNodeIdFile)"
+OTTER_OPTS="-DappName=${appName} -Ddubbo.application.logger=slf4j -Dlogback.configurationFile=$logback_configurationFile -Dnid=$(cat $otterNodeIdFile)"
 
 if [ -e $otterNodeIdFile -a -e $logback_configurationFile ]
 then 

@@ -6,6 +6,13 @@ MAINTAINER ZWWang (zwwang_cool@163.com)
 ARG OTTER_DOWNLOAD_LINK="https://github.com/alibaba/otter/releases/download/otter-4.2.18/manager.deployer-4.2.18.tar.gz"
 ENV OTTER_HOME /usr/local/otter
 
+ENV Xms 2048m
+ENV Xmx 3072m
+ENV Xmn 1024m
+ENV PermSize 96m
+ENV MaxPermSize 256m
+ENV appName otter-manager
+
 #添加启动脚本
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY start.sh ${OTTER_HOME}/bin/

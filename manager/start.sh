@@ -8,12 +8,12 @@ export LANG=en_US.UTF-8
 export BASE=${base}
 
 
-JAVA_OPTS="-server -Xms2048m -Xmx3072m -Xmn1024m -XX:SurvivorRatio=2 -XX:PermSize=96m -XX:MaxPermSize=256m -Xss256k \
+JAVA_OPTS="-server -Xms${Xms} -Xmx${Xmx} -Xmn${Xmn} -XX:SurvivorRatio=2 -XX:PermSize=${PermSize} -XX:MaxPermSize=${MaxPermSize} -Xss256k \
 -XX:-UseAdaptiveSizePolicy -XX:MaxTenuringThreshold=15 -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC \
 -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:+UseFastAccessorMethods \
 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError"
 JAVA_OPTS=" $JAVA_OPTS -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8"
-OTTER_OPTS="-DappName=otter-manager -Ddubbo.application.logger=slf4j -Dlogback.configurationFile=$logback_configurationFile -Dotter.conf=$otter_conf"
+OTTER_OPTS="-DappName=${appName} -Ddubbo.application.logger=slf4j -Dlogback.configurationFile=$logback_configurationFile -Dotter.conf=$otter_conf"
 
 if [[ -e ${otter_conf} && -e ${logback_configurationFile} ]]
 then 
