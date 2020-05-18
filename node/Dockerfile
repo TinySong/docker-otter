@@ -40,7 +40,7 @@ RUN \
 
 EXPOSE 8081 1099
 # 配置容器启动后执行的命令
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint"]
 # 执行最终命令，启动 otter-manager
 # CMD ["/dockerize","sh","-c","/usr/local/otter/bin/start.sh"]
 CMD ["dockerize","start"]
