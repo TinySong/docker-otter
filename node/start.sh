@@ -1,7 +1,7 @@
 #!/bin/bash 
 otterNodeIdFile=${OTTER_HOME}/conf/nid
 logback_configurationFile=${OTTER_HOME}/conf/logback.xml
-
+cd ${OTTER_HOME}/bin
 JAVA_OPTS="-server -Xms${Xms} -Xmx${Xmx} -Xmn${Xmn} -XX:SurvivorRatio=2 -XX:PermSize=${PermSize} -XX:MaxPermSize=${MaxPermSize} \
 -Xss256k -XX:-UseAdaptiveSizePolicy -XX:MaxTenuringThreshold=15 -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC \
 -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:+UseFastAccessorMethods \
