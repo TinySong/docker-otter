@@ -18,7 +18,7 @@ ENV appName otter-node
 COPY docker-entrypoint.sh ${OTTER_HOME}/bin/
 COPY start.sh ${OTTER_HOME}/bin/
 COPY aria2c /usr/local/bin/
-COPY stop.sh /usr/local/bin/
+COPY stop.sh ${OTTER_HOME}/bin/
 
 RUN \
     mkdir -p ${OTTER_HOME}/bin && \
