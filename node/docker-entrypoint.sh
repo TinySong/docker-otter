@@ -12,19 +12,17 @@ if [ ! -d $base/logs/node ] ; then
 	mkdir -p $base/logs/node
 fi
 
-
-echo "++++++++NID: $NID"
 if [ -z "$NID" ]; then
 	if [ -f ${otterNodeIdFile} ];then
 		NID=$(cat $otterNodeIdFile)
 	fi
 fi
 
-echo "-----NID: $NID"
 if [ -n "$NID" ] ;  then
 	echo $NID > $otterNodeIdFile
 fi
-echo "=====NID: $NID" 
+
+echo "NID: $NID" 
 
 if [ -n "$OTTER_HOME" ]; then
     cmd="sed -i -e 's|^otter.nodeHome.*$|otter.nodeHome = ${OTTER_HOME}|' ${otterProperties}"
