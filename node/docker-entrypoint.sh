@@ -16,9 +16,8 @@ if [ -z "$NID" ]; then
 	if [ -f ${otterNodeIdFile} ];then
 		NID=$(cat $otterNodeIdFile)
 	fi
-	if [ -n "$NID" ]; then
-		echo $NID > ${OTTER_HOME}/conf/nid
-	fi
+else
+	echo $NID > $otterNodeIdFile
 fi
 
 if [ -n "$OTTER_HOME" ]; then
